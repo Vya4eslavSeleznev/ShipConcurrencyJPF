@@ -46,7 +46,7 @@ public class PierLoader implements Runnable {
                             System.out.println(Ship.getShipCount(ship) + " Loaded ship. " + Thread.currentThread().getName());
                     }
                 }
-            } catch (InterruptedException | LoadingGoodsException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
