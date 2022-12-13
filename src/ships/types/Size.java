@@ -11,6 +11,10 @@ public class Size {
         return ship & 0xFF0000;
     }
 
+    public static int getShipRealSize(int ship) {
+        return (ship & 0xFF0000) / 0x10000;
+    }
+
     public static int getShipCurrentSize(int ship) {
         return ship & 0xFF;
     }

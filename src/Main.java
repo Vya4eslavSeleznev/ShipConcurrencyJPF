@@ -8,13 +8,13 @@ public class Main {
 
     private static final int SHIP_COUNT = 3;
 
-    public static void main(String[] args) throws InterruptedException, ShipCountException {
+    public static void main(String[] args) throws ShipCountException {
         //int availableCPUs = Runtime.getRuntime().availableProcessors();
         //System.out.println("Available number of cores: " + availableCPUs);
 
         Tunnel tunnel = new Tunnel();
 
-        ShipGenerator shipGenerator = new ShipGenerator(tunnel, 1);
+        ShipGenerator shipGenerator = new ShipGenerator(tunnel, SHIP_COUNT);
 
         if (shipGenerator.getShipCount() > SHIP_COUNT)
             throw new ShipCountException("The number of ships is more than possible");
