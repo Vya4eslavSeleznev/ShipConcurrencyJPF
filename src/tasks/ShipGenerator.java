@@ -14,12 +14,26 @@ public class ShipGenerator implements Runnable {
     private final int max = 2;
     private final int min = 0;
 
+    static ShipGenerator shipGeneratorInstance = null;
+
     public ShipGenerator(Tunnel tunnel, int shipCount) {
         this.tunnel = tunnel;
         this.shipCount = shipCount;
+        if (shipGeneratorInstance == null)
+            shipGeneratorInstance = this;
+    }
+
+    public static ShipGenerator getinstance()
+    {
+        return shipGeneratorInstance;
     }
 
     private int count = 0;
+
+    public int getCount()
+    {
+        return count;
+    }
 
     public int getShipCount() {
         return shipCount;
@@ -28,7 +42,7 @@ public class ShipGenerator implements Runnable {
     @Override
     public void run() {
         while (count < shipCount) {
-            Thread.currentThread().setName(" Generator ship");
+            Thread.currentThread().setName("Generator ship");
             count++;
             tunnel.add(Ship.newShip(getRandomSize(), getRandomType()));
             try {
