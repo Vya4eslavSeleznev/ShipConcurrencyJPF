@@ -22,7 +22,6 @@ public class PierLoader implements Runnable {
             try {
                 Thread.currentThread().setName("Loader " + ShipTypes.getTypeName(pierType));
 
-                //Time to load the goods
                 Thread.sleep(Defines.TIME_UNIT);
                 int ship = tunnel.get(pierType);
 

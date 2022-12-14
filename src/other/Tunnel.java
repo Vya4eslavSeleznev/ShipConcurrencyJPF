@@ -10,7 +10,6 @@ public class Tunnel {
 
     private final int[] store;
 
-    // 0 object lock for tunnel 1..size-1 for pierLoaders
     private final Object[] syncObjects;
     private static final int maxShipsInTunnel = 5;
     private static final int minShipsInTunnel = 0;
@@ -18,7 +17,6 @@ public class Tunnel {
     private int shipsCounter = 0;
 
     private boolean shipFinished = false;
-
 
     public Tunnel() {
         store = new int[maxShipsInTunnel];
